@@ -1,0 +1,39 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- EditText for Min Amount -->
+    <EditText
+        android:id="@+id/etMinGoalAmount"
+        android:hint="Enter minimum goal amount (e.g. 200.00)"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- EditText for Max Amount -->
+    <EditText
+        android:id="@+id/etMaxGoalAmount"
+        android:hint="Enter maximum goal amount (e.g. 1000.00)"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btnSaveGoal"
+        android:text="Save Goal"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- TextView to display current goal -->
+    <TextView
+        android:id="@+id/tvCurrentGoal"
+        android:text="Current goal will appear here..."
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

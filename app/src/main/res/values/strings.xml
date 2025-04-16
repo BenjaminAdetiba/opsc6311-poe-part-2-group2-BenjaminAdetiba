@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ExTrackApp</string>
+    <string name="category_prompt">Select a category</string>
+</resources>
