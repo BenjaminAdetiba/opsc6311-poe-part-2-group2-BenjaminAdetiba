@@ -67,6 +67,15 @@ class ViewReportActivity : AppCompatActivity() {
         binding.btnSetGoals.setOnClickListener {
             startActivityWithUser(SetGoalActivity::class.java)
         }
+        binding.calcubutton.setOnClickListener {
+            startActivityWithUser(CalculatorScreenActivity::class.java)
+        }
+        binding.btnCatsummary.setOnClickListener {
+            val intent = Intent(this, CategorySummaryActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
+
     }
 
     private fun startActivityWithUser(activityClass: Class<*>) {
@@ -76,4 +85,6 @@ class ViewReportActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
+
+
 }

@@ -1,47 +1,45 @@
 package com.example.extrackapp
 
-
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.extrackapp.databinding.ActivityAddCategoryBinding
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.extrackapp.databinding.ActivityCategorySummaryBinding
+import com.example.extrackapp.databinding.ActivityViewReportBinding
 
-
-class AddCategoryActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityAddCategoryBinding
+class CategorySummaryActivity : AppCompatActivity() {
     private lateinit var dbHelper: DatabaseHelper
+    private lateinit var listView: ListView
     private var userId: Int = -1
-    private var username: String = ""
+    private lateinit var binding: ActivityCategorySummaryBinding
+    private var username = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddCategoryBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_category_summary)
+        binding = ActivityCategorySummaryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         dbHelper = DatabaseHelper(this)
         userId = intent.getIntExtra("userId", -1)
+        listView = findViewById(R.id.listViewCategorySummary)
 
-        binding.btnSaveCategory.setOnClickListener {
-            val categoryName = binding.etCategoryName.text.toString().trim()
+        loadSummary()
 
-            if (categoryName.isEmpty()) {
-                Toast.makeText(this, "Please enter a category name", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+    }
 
-            val success = dbHelper.addCategory(userId, categoryName)
-            if (success) {
-                Toast.makeText(this, "Category saved", Toast.LENGTH_SHORT).show()
-                binding.etCategoryName.text.clear()
-            } else {
-                Toast.makeText(this, "Category already exists", Toast.LENGTH_SHORT).show()
-            }
-        }
+    private fun loadSummary() {
+        val categoryTotals = dbHelper.getTotalSpentPerCategory(userId)
+        val summaryList = categoryTotals.map { "${it.key}: \$${String.format("%.2f", it.value)}" }
 
-        setupButtonListeners()    }
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, summaryList)
+        listView.adapter = adapter
 
+        setupButtonListeners()
+    }
 
     private fun setupButtonListeners() {
 
@@ -72,7 +70,6 @@ class AddCategoryActivity : AppCompatActivity() {
             intent.putExtra("userId", userId)
             startActivity(intent)
         }
-
 
     }
 

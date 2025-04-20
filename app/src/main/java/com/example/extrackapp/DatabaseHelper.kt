@@ -10,7 +10,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     companion object {
         const val DATABASE_NAME = "ExpenseTracker.db"
-        const val DATABASE_VERSION = 1 // increment if changes are made in the database
+        const val DATABASE_VERSION = 3 // increment if changes are made in the database
         // Table names
         const val TABLE_USERS = "Users"
         const val TABLE_CATEGORIES = "Categories"
@@ -199,7 +199,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val db = readableDatabase
 
         val query = """
-        SELECT e.ExpenseID, e.Amount, e.Date, e.Description, c.Name as CategoryName
+        SELECT e.ExpenseID, e.Amount, e.Date, e.Description, e.StartTime, e.EndTime, c.Name as CategoryName
         FROM $TABLE_EXPENSES e
         INNER JOIN $TABLE_CATEGORIES c ON e.CategoryID = c.CategoryID
         WHERE e.UserID = ?
@@ -215,8 +215,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 val date = cursor.getString(cursor.getColumnIndexOrThrow("Date"))
                 val description = cursor.getString(cursor.getColumnIndexOrThrow("Description"))
                 val categoryName = cursor.getString(cursor.getColumnIndexOrThrow("CategoryName"))
+                val startTime = cursor.getString(cursor.getColumnIndexOrThrow("StartTime"))
+                val endTime = cursor.getString(cursor.getColumnIndexOrThrow("EndTime"))
 
-                expenses.add(Expense(id, userId.toString(), amount, date, description, categoryName ))
+
+                expenses.add(Expense(id, userId.toString(), amount, date, description, categoryName, startTime, endTime ))
             } while (cursor.moveToNext())
         }
 
@@ -328,18 +331,30 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
 
     // ---------------- REPORTING ----------------
-
-    fun getTotalPerCategory(userId: Int, startDate: String, endDate: String): Cursor {
+    fun getTotalSpentPerCategory(userId: Int): Map<String, Double> {
         val db = readableDatabase
-        return db.rawQuery(
-            """
-            SELECT c.Name, SUM(e.Amount) AS TotalSpent 
-            FROM $TABLE_EXPENSES e 
-            JOIN $TABLE_CATEGORIES c ON e.CategoryID = c.CategoryID 
-            WHERE e.UserID = ? AND e.Date BETWEEN ? AND ? 
-            GROUP BY c.Name
-            """.trimIndent(),
-            arrayOf(userId.toString(), startDate, endDate)
-        )
+        val result = mutableMapOf<String, Double>()
+
+        val query = """
+        SELECT c.Name, SUM(e.Amount) AS total
+        FROM $TABLE_EXPENSES e
+        JOIN $TABLE_CATEGORIES c ON e.CategoryID = c.CategoryID
+        WHERE e.UserID = ?
+        GROUP BY c.Name
+    """.trimIndent()
+
+        val cursor = db.rawQuery(query, arrayOf(userId.toString()))
+
+        if (cursor.moveToFirst()) {
+            do {
+                val category = cursor.getString(cursor.getColumnIndexOrThrow("Name"))
+                val total = cursor.getDouble(cursor.getColumnIndexOrThrow("total"))
+                result[category] = total
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        return result
     }
+
 }

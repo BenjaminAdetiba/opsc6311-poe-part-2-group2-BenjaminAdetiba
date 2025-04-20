@@ -1,5 +1,7 @@
 package com.example.extrackapp
 
+import java.sql.Time
+
 data class Expense(
 
     val id: Int,
@@ -8,4 +10,8 @@ data class Expense(
     val date: String,
     val description: String,
     val categoryName1: String,
+    val startTime: String,
+    val endTime: String,
+
+
 )

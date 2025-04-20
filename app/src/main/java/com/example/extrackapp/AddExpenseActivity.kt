@@ -1,5 +1,6 @@
 package com.example.extrackapp
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -19,6 +20,7 @@ class AddExpenseActivity : AppCompatActivity() {
     private var userId: Int = -1
     private var categoryMap = mutableMapOf<String, Int>()  // name -> id
     private var photoPath: String? = null
+    private var username : String = ""
 
   // For photo capture/selection
    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
@@ -43,6 +45,7 @@ class AddExpenseActivity : AppCompatActivity() {
         dbHelper = DatabaseHelper(this)
         userId = intent.getIntExtra("userId", -1)
 
+        setupButtonListeners()
         // Load categories
         val categories = dbHelper.getCategories(userId)
         val categoryNames = categories.map {
@@ -106,7 +109,7 @@ class AddExpenseActivity : AppCompatActivity() {
             startTime = if (startTime.isEmpty()) null else startTime,
             endTime = if (endTime.isEmpty()) null else endTime,
             description = if (description.isEmpty()) null else description,
-            photoPath = photoPath
+         // photoUri = photouri
         )
 
         if (success) {
@@ -138,4 +141,45 @@ class AddExpenseActivity : AppCompatActivity() {
         binding.ivExpensePhoto.visibility = android.view.View.GONE
         photoPath = null
     }
+
+
+
+
+    private fun setupButtonListeners() {
+        binding.btnAddCategory.setOnClickListener {
+            startActivityWithUser(AddCategoryActivity::class.java)
+        }
+
+        binding.btnAddExpense.setOnClickListener {
+            startActivityWithUser(AddExpenseActivity::class.java)
+        }
+
+        binding.btnViewExpenses.setOnClickListener {
+            startActivityWithUser(ViewExpenseActivity::class.java)
+        }
+
+        binding.btnViewReport.setOnClickListener {
+            startActivityWithUser(ViewReportActivity::class.java)
+        }
+
+        binding.btnSetGoals.setOnClickListener {
+            startActivityWithUser(SetGoalActivity::class.java)
+        }
+        binding.btnCatsummary.setOnClickListener {
+            val intent = Intent(this, CategorySummaryActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
+
+    }
+
+    private fun startActivityWithUser(activityClass: Class<*>) {
+        val intent = Intent(this, activityClass).apply {
+            putExtra("userId", userId)
+            putExtra("username", username)
+        }
+        startActivity(intent)
+    }
+
+
 }

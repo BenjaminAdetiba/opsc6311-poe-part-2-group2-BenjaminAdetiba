@@ -17,10 +17,15 @@ class ExpenseAdapter(private val expenses: List<Expense>) :
 
     override fun onBindViewHolder(holder: ExpenseViewHolder, position: Int) {
         val expense = expenses[position]
-        holder.binding.tvCategory.text = "Category: ${expense.categoryName}"
+        holder.binding.tvCategory.text = "Category: ${expense.categoryName1}"
         holder.binding.tvAmount.text = "Amount: \$${expense.amount}"
         holder.binding.tvDate.text = "Date: ${expense.date}"
-        holder.binding.tvDescription.text = "Note: ${expense.description}"
+        holder.binding.tvDescription.text = "Description: ${expense.description}"
+        holder.binding.tvStartTime.text = "Start time : ${expense.startTime}"
+        holder.binding.tvEndTime.text = "End time : ${expense.endTime}"
+
+
+
 
     }
 
