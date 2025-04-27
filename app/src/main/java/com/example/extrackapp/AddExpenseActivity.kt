@@ -1,5 +1,7 @@
 package com.example.extrackapp
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 import com.example.extrackapp.databinding.ActivityAddExpenseBinding
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Locale
 
 
@@ -170,6 +173,19 @@ class AddExpenseActivity : AppCompatActivity() {
             intent.putExtra("userId", userId)
             startActivity(intent)
         }
+        binding.etDate.setOnClickListener {
+            showDatePicker()
+        }
+
+        binding.etStartTime.setOnClickListener {
+            showTimePicker(isStartTime = true)
+        }
+
+        binding.etEndTime.setOnClickListener {
+            showTimePicker(isStartTime = false)
+        }
+
+
 
     }
 
@@ -180,6 +196,44 @@ class AddExpenseActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
+
+    private fun showDatePicker() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(this,
+            { _, selectedYear, selectedMonth, selectedDayOfMonth ->
+                // Formatting month and day to always have 2 digits
+                val formattedDate = String.format("%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDayOfMonth)
+                binding.etDate.setText(formattedDate)
+            },
+            year, month, day
+        )
+        datePickerDialog.show()
+    }
+
+    private fun showTimePicker(isStartTime: Boolean) {
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+
+        val timePickerDialog = TimePickerDialog(this,
+            { _, selectedHour, selectedMinute ->
+                val formattedTime = String.format("%02d:%02d", selectedHour, selectedMinute)
+                if (isStartTime) {
+                    binding.etStartTime.setText(formattedTime)
+                } else {
+                    binding.etEndTime.setText(formattedTime)
+                }
+            },
+            hour, minute, true  // 24-hour format = true
+        )
+        timePickerDialog.show()
+    }
+
+
 
 
 }
