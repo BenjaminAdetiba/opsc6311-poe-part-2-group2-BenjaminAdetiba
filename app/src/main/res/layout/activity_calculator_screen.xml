@@ -13,6 +13,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="212dp"
+        android:backgroundTint="#161212"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +25,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#100909"
         android:text="/"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +37,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="116dp"
+        android:backgroundTint="#160D0D"
         android:text="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +49,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="216dp"
+        android:backgroundTint="#181414"
         android:text="="
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,6 +61,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="308dp"
+        android:backgroundTint="#0D0707"
         android:text="Clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,10 +70,11 @@
 
     <Button
         android:id="@+id/btnSubtract"
-        android:layout_width="84dp"
-        android:layout_height="43dp"
+        android:layout_width="85dp"
+        android:layout_height="47dp"
         android:layout_marginEnd="308dp"
-        android:text="-"
+        android:backgroundTint="#000000"
+        android:text="--"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -79,6 +85,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="116dp"
+        android:backgroundTint="#1A0F0F"
         android:text="9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,6 +97,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="308dp"
+        android:backgroundTint="@color/black"
         android:text="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,6 +109,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="212dp"
+        android:backgroundTint="@color/black"
         android:text="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,9 +118,10 @@
 
     <Button
         android:id="@+id/btn3"
-        android:layout_width="82dp"
-        android:layout_height="39dp"
+        android:layout_width="87dp"
+        android:layout_height="42dp"
         android:layout_marginEnd="116dp"
+        android:backgroundTint="@color/black"
         android:text="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +133,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/black"
         android:text="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,6 +145,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="308dp"
+        android:backgroundTint="#090909"
         android:text="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,6 +157,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="212dp"
+        android:backgroundTint="#090808"
         android:text="6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -156,6 +169,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="116dp"
+        android:backgroundTint="#0D0B0B"
         android:text="7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -167,6 +181,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#090808"
         android:text="8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -178,6 +193,7 @@
         android:layout_width="84dp"
         android:layout_height="43dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#0B0505"
         android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -188,7 +204,7 @@
         android:id="@+id/txtResult"
         android:layout_width="194dp"
         android:layout_height="34dp"
-        android:text="TextView"
+        android:text="Result : "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -206,6 +222,115 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.258" />
+
+
+<!--    <Button-->
+<!--        android:id="@+id/calcubutton"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="44dp"-->
+<!--        android:text="Calculator"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.071"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.878" />-->
+
+    <Button
+        android:id="@+id/btnOpenFilterExpenses"
+        android:layout_width="120dp"
+        android:layout_height="44dp"
+        android:text="Filter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.877" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnViewReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/home_icon" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnViewExpenses"
+        android:layout_width="52dp"
+        android:layout_height="54dp"
+        android:clickable="true"
+        app:backgroundTint="@color/orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/view_ex" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/wallet" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnCatsummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/dgraph" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/lightblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875"
+        app:srcCompat="@drawable/adcat" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnSetGoals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/medal" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

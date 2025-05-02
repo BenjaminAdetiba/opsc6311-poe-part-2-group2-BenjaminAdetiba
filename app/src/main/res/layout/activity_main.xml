@@ -19,38 +19,12 @@
             android:textStyle="bold"
             android:paddingBottom="16dp" />
 
-<!--        <Button-->
-<!--            android:id="@+id/btnAddCategory"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Add Category" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btnAddExpense"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Add Expense"-->
-<!--            android:layout_marginTop="8dp" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btnViewExpenses"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="View Expenses"-->
-<!--            android:layout_marginTop="8dp" />-->
-
         <Button
             android:id="@+id/btnViewReport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Click to view Dashboard"
-            android:layout_marginTop="8dp" />
-
-<!--        <Button-->
-<!--            android:id="@+id/btnSetGoals"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Set Monthly Goals"-->
-<!--            android:layout_marginTop="8dp" />-->
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#03A9F4"
+            android:text="Click to view Dashboard" />
     </LinearLayout>
 </ScrollView>

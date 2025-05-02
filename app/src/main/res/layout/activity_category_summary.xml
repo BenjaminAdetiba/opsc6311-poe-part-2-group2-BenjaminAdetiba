@@ -38,7 +38,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddCategory"
         android:layout_width="wrap_content"
@@ -46,7 +45,7 @@
         android:layout_margin="16dp"
         android:contentDescription="Add Category"
         android:src="@drawable/adcat"
-        app:backgroundTint="@color/orange"
+        app:backgroundTint="@color/lightblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.739"
@@ -61,7 +60,7 @@
         android:layout_margin="16dp"
         android:contentDescription="Add Expense"
         android:src="@drawable/wallet"
-        app:backgroundTint="@color/orange"
+        app:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.272"
@@ -91,7 +90,7 @@
         android:layout_margin="16dp"
         android:contentDescription="View Report"
         android:src="@drawable/home_icon"
-        app:backgroundTint="@color/blue"
+        app:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
@@ -121,7 +120,7 @@
         android:layout_margin="16dp"
         android:contentDescription="Category summary"
         android:src="@drawable/dgraph"
-        app:backgroundTint="@color/blue"
+        app:backgroundTint="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
